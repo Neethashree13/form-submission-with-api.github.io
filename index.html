@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+   
+  <link href="img.png" rel="icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body style="background-color: #CB9DF0;font-family: cursive;font-size: medium;font-weight: bolder;">
+  <form action="https://sheetdb.io/api/v1/16mvvf9ao9awv" method="POST" id="sheetdb-form">
+<label for="uname">UserName</label>
+<label for="uname" style="color: red;">*</label>
+<input type="text" id="uname" class="form-control" name="data[UserName]" class="form-control">
+<span id="msg" style="color: red;"></span><br>
+<label for="email">Email</label>
+<input type="email" id="email" class="form-control" name="data[Email]" required><br>
+<label for="phnum">PhoneNumber</label>
+<label for="phnum" style="color: red;">*</label>
+<input type="text" id="phnum" class="form-control" name="data[PhoneNumber]">
+<span id="msg1" style="color: red;"></span><br>
+<label for="pass">Password</label>
+<input type="password" id="pass " class="form-control" name="data[Password]" required><br>
+<label for="confirmpass">Confirm Password</label>
+<input type="password" id="confirmpass" class="form-control" name="data[confirPassword]">
+<input type="submit" class="btn btn-cimary">
+<script>
+ var form=document.getElementById("sheetdb-form")
+form.addEventListener("submit",e=>{
+  e.preventDefault();//automaticaly form will not submit
+  fetch(form.action,{
+   method: "POST",
+  body: new FormData(document.getElementById("sheetdb-form")),
+  
+  }).then((html) => {
+  
+  window.open('msg.html','_blank'); });
+  
+  })
+  </script>
+ </form>
+ 
+ 
+</body>
+</html>
